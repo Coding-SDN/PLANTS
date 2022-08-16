@@ -142,9 +142,9 @@ sr.reveal(`.about__data, .contact__form`,{origin: 'right'})
 sr.reveal(`.steps__card, .product__card, .questions__group, .footer`,{interval: 100})
 
 /*=============== EMAILJS ===============*/
-const btn = document.getElementById('button');
+const btn = document.getElementById('contact-button');
 
-document.getElementById('form')
+document.getElementById('contact-form')
  .addEventListener('submit', function(event) {
    event.preventDefault();
 
