@@ -399,25 +399,25 @@
                         </div>
                     </div>
 
-                    <form action="" class="contact__form">
+                    <form action="" class="contact__form" id="form">
                         <div class="contact__inputs">
                             <div class="contact__content">
-                                <input type="email" placeholder=" " class="contact__input">
+                                <input type="text" placeholder=" " class="contact__input" name="from_name" id="from_name">
+                                <label for="" class="contact__label">Full Name</label>
+                            </div>
+
+                            <div class="contact__content">
+                                <input type="email" placeholder=" " class="contact__input" name="email_id" id="email_id">
                                 <label for="" class="contact__label">Email</label>
                             </div>
 
-                            <div class="contact__content">
-                                <input type="text" placeholder=" " class="contact__input">
-                                <label for="" class="contact__label">Subject</label>
-                            </div>
-
                             <div class="contact__content contact__area">
-                                <textarea name="message" placeholder=" " class="contact__input"></textarea>                              
+                                <textarea name="message" placeholder=" " class="contact__input" id="message"></textarea>                              
                                 <label for="" class="contact__label">Message</label>
                             </div>
                         </div>
 
-                        <button class="button button--flex">
+                        <button type="submit" class="button button--flex" id="button">
                             Send Message
                             <i class="ri-arrow-right-up-line button__icon"></i>
                         </button>
@@ -502,7 +502,13 @@
 
         <!--=============== SCROLL REVEAL ===============-->
         <script src="assets/js/scrollreveal.min.js"></script>
-        
+    
+        <!--=============== EMAILJS ===============-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            emailjs.init('3Za3SzlUeCu7duEi-');
+          </script>
+
         <!--=============== MAIN JS ===============-->
         <script src="assets/js/main.js"></script>
     </body>
