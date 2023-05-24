@@ -37,36 +37,6 @@ function scrollHeader(){
 }
 window.addEventListener('scroll', scrollHeader)
 
-/*=============== QUESTIONS ACCORDION ===============*/
-const accordionItems = document.querySelectorAll('.questions__item')
-
-accordionItems.forEach((item) =>{
-    const accordionHeader = item.querySelector('.questions__header')
-
-    accordionHeader.addEventListener('click', () =>{
-        const openItem = document.querySelector('.accordion-open')
-
-        toggleItem(item)
-
-        if(openItem && openItem!== item){
-            toggleItem(openItem)
-        }
-    })
-})
-
-const toggleItem = (item) =>{
-    const accordionContent = item.querySelector('.questions__content')
-
-    if(item.classList.contains('accordion-open')){
-        accordionContent.removeAttribute('style')
-        item.classList.remove('accordion-open')
-    }else{
-        accordionContent.style.height = accordionContent.scrollHeight + 'px'
-        item.classList.add('accordion-open')
-    }
-
-}
-
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')
 
@@ -124,41 +94,3 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
-
-/*=============== SCROLL REVEAL ANIMATION ===============*/
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2500,
-    delay: 400,
-    reset: true
-})
-
-sr.reveal(`.home__data`)
-sr.reveal(`.home__img`, {delay: 500})
-sr.reveal(`.home__social`, {delay: 600})
-sr.reveal(`.about__img, .contact__box`,{origin: 'left'})
-sr.reveal(`.about__data, .contact__form`,{origin: 'right'})
-sr.reveal(`.steps__card, .product__card, .questions__group, .footer`,{interval: 100})
-
-/*=============== EMAILJS ===============*/
-const btn = document.getElementById('contact-button');
-
-document.getElementById('contact-form')
- .addEventListener('submit', function(event) {
-   event.preventDefault();
-
-   btn.value = 'Sending...';
-
-   const serviceID = 'service_0dj4xzc';
-   const templateID = 'template_c58pn76';
-
-   emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
-      btn.value = 'Send Email';
-      alert('Sent!');
-    }, (err) => {
-      btn.value = 'Send Email';
-      alert(JSON.stringify(err));
-    });
-});
